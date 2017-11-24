@@ -1,0 +1,62 @@
+<div class="list-actions-entry"
+     ng-mouseleave="triggerActionsToggle(false)">
+    <div ng-mouseover="triggerActionsToggle(true)"
+         class="list-entry-row {{containerClass}}"
+         ng-class="{'shadowed-list-item': contentModel.loaned,
+                    'opacity-0': showActions && !descriptionExpanded,
+                    'border-less': descriptionExpanded}">
+        <div class="entry-row-name">
+            <span ng-if="contentModel.name" class="name-main">{{contentModel.name}}</span>
+            <span> - </span>
+            <span ng-if="contentModel.author" class="name-sub">{{contentModel.author}}</span>
+        </div>
+        <div ng-if="descriptionExpanded"
+             ng-click="toggleExpandDescription(false)"
+             class="entry-row-toggle h-borders">
+            Hide description
+            <i class="fa fa-times"></i>
+        </div>
+        <div ng-if="contentModel.favorite" class="entry-row-toggle entry-row-favorite">
+            <i class="fa fa-star"></i>
+        </div>
+        <div class="entry-row-type">
+            <i class="fa {{iconClass}}"></i>
+        </div>
+    </div>
+    <div ng-if="contentModel.description && descriptionExpanded" class="border-bottom entry-row-description">
+        <span class="description">{{contentModel.description}}</span>
+    </div>
+    <div ng-if="showActions && !descriptionExpanded"
+         class="actions-cover-container preview-actions-container">
+        <div ng-if="contentModel.description"
+             ng-click="toggleExpandDescription(true)"
+             class="actions-cover-item transparent">
+            <span class="actions-cover-title">Show description...</span>
+        </div>
+        <div ng-if="isLoaned"
+             ng-click="triggerEntityAction('get-it-back')"
+             class="actions-cover-item get-it-back">
+            <span class="actions-cover-title">Get it back!</span>
+        </div>
+        <div ng-if="!isLoaned"
+             ng-click="triggerEntityAction('loan-book')"
+             class="actions-cover-item loan-the-book">
+            <span class="actions-cover-title">Loan the Book!</span>
+        </div>
+        <div ng-if="!isLoaned"
+             ng-click="triggerEntityAction('delete-book')"
+             class="actions-cover-item destroy-the-book">
+            <span class="actions-cover-title">Destroy the Book!</span>
+        </div>
+        <div ng-if="isFavorite && !isLoaned"
+             ng-click="triggerEntityAction('un-favorite')"
+             class="actions-cover-item not-my-favorite">
+            <span class="actions-cover-title">Not my favorite...</span>
+        </div>
+        <div ng-if="!isFavorite && !isLoaned"
+             ng-click="triggerEntityAction('favorite')"
+             class="actions-cover-item not-my-favorite">
+            <span class="actions-cover-title">Make my favorite...</span>
+        </div>
+    </div>
+</div>

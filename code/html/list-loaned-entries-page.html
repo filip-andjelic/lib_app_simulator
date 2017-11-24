@@ -1,0 +1,38 @@
+<div id="list-loaned-entries-page" class="page-wrapper">
+    <div class="page-main-header">
+        <span class="main-title">List of loaned Book Entries</span>
+        <div class="header-input-group">
+            <div class="icons-group-input">
+                <label class="small-label">Select View:</label>
+                <div ng-click="toggleView('list')"
+                     class="icon-input"
+                     ng-class="{'selected-input': activeViewType === 'list'}"><i class="fa fa-list"></i></div>
+                <span> | </span>
+                <div ng-click="toggleView('breadcrumb')"
+                     class="icon-input"
+                     ng-class="{'selected-input': activeViewType === 'breadcrumb'}"><i class="fa fa-cubes"></i></div>
+            </div>
+        </div>
+    </div>
+    <div ng-if="activeViewType === 'breadcrumb' && hasEntriesToShow()"
+         class="page-content horizontal-separation">
+        <div class="page-section border-less max-width-250"
+             ng-repeat="bookEntry in existingBookEntries track by $index">
+            <preview-actions-container content-model="bookEntry"
+                                       container-class="{{'category-background-' + bookEntry.category}}"
+                                       icon-class="{{'fa-' + getEntryClassType(bookEntry.category)}}">
+            </preview-actions-container>
+        </div>
+    </div>
+    <div ng-if="activeViewType === 'list' && hasEntriesToShow()"
+         class="page-content vertical-separation">
+        <list-actions-entry ng-repeat="bookEntry in existingBookEntries track by $index"
+                            content-model="bookEntry"
+                            container-class="{{'category-background-' + bookEntry.category}} page-list-item"
+                            icon-class="{{'fa-' + getEntryClassType(bookEntry.category)}}">
+        </list-actions-entry>
+    </div>
+    <default-empty-state ng-if="!hasEntriesToShow()"
+                         content="emptyStateModel">
+    </default-empty-state>
+</div>

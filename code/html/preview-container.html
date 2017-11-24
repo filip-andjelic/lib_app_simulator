@@ -1,0 +1,16 @@
+<div class="preview-container {{containerClass}}"
+     ng-class="{'opacity-7': contentModel.loaned}">
+    <div class="entry-preview-title">
+        <span ng-if="contentModel.name" class="title-main">{{contentModel.name}}</span>
+        <span ng-if="contentModel.author" class="title-sub">{{contentModel.author}}</span>
+    </div>
+    <div class="entry-preview-description">
+        <span ng-if="contentModel.description" class="description">{{contentModel.description}}</span>
+    </div>
+    <div class="entry-preview-type">
+        <i class="fa {{iconClass}}"></i>
+    </div>
+    <div ng-if="contentModel.favorite" class="entry-preview-type entry-type-favorite">
+        <i class="fa fa-star"></i>
+    </div>
+</div>

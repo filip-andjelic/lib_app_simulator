@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <title>NFL - New Library Front-End</title>
+    <script type="text/javascript" src="application.js"></script>
+    <link rel="stylesheet" type="text/css" href="application.css">
+    <script src="https://use.fontawesome.com/4e17d87ac4.js"></script>
+</head>
+<body>
+    <div ng-app="archApp" id="application-wrapper">
+        <div ng-controller="ArchController"
+             id="arch-layout-grid"
+             class="application-container arch-layout-grid">
+            <!-- This is main header/toolbar for app -->
+            <div id="application-toolbar" class="application-toolbar">
+                <div ng-click="goToCreateNewView()" class="toolbar-item home-item">
+                    <i class="fa fa-book"></i>
+                </div>
+                <div class="toolbar-item central-item">
+                    <i class="fa fa-university"></i>
+                    <span class="central-item-title">New Library Front-End</span>
+                </div>
+                <div ng-click="goToSettingsView()" class="toolbar-item settings-item">
+                    <i class="fa fa-cogs"></i>
+                </div>
+            </div>
+            <!-- This is wrapper for sidebar and page content -->
+            <div id="application-view-wrapper" class="application-view-wrapper">
+                <!-- This is sidebar for app -->
+                <div id="application-sidebar-content" class="application-sidebar-content">
+                    <div ng-repeat="item in sidebarItems track by $index"
+                         ng-click="changePageView(item)"
+                         class="sidebar-item-container"
+                         ng-class="{'sidebar-item-open': item.open}">
+                        <i class="fa {{item.iconClass}}"></i>
+                    </div>
+                </div>
+                <!-- This is dynamic page for app content -->
+                <div id="application-page-content" class="application-page-content">
+                    <div class="" ui-view></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>

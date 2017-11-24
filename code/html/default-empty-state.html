@@ -1,0 +1,11 @@
+<div class="default-empty-state">
+    <div class="empty-state-title">
+        <span>{{content.title}}</span>
+    </div>
+    <div class="empty-state-content">
+        <span class="description">{{content.description}}</span>
+        <span ng-if="content.link">
+            <a class='in-app-link' ui-sref="{{content.link.sref}}">{{content.link.text}}</a>
+        </span>
+    </div>
+</div>

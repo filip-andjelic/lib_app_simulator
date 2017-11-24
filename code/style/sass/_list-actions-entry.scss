@@ -1,0 +1,80 @@
+.list-actions-entry {
+  flex: 1 1 100%;
+  max-width: 100%;
+  min-width: 0;
+  position: relative;
+
+  .list-entry-row {
+    display: flex;
+    align-items: center;
+
+    .entry-row-name {
+      flex: 1 1 0;
+      padding-left: 10px;
+    }
+    .entry-row-type {
+      flex: 0 0 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .entry-row-toggle {
+      padding: 0 10px;
+      margin-left: 10px;
+    }
+    .name-main {
+      font-weight: 900;
+      word-break: break-all;
+      word-wrap: break-word;
+    }
+    .name-sub {
+      word-break: break-all;
+      word-wrap: break-word;
+    }
+
+    &.category-background-religion, &.category-background-religion + .entry-row-description {
+      color: $color_yellow-strong;
+    }
+    &.category-background-science, &.category-background-science + .entry-row-description {
+      color: $color_purple-strong;
+    }
+    &.category-background-novel, &.category-background-novel + .entry-row-description {
+      color: $color_green-strong;
+    }
+    &.category-background-poems, &.category-background-poems + .entry-row-description {
+      color: $color_azure-strong;
+    }
+    &.category-background-business, &.category-background-business + .entry-row-description {
+      color: $color_purple-dark;
+    }
+  }
+  .actions-cover-container {
+    position: absolute;
+    left: 0;
+    top: 0;
+    display: flex;
+    width: 100%;
+    height: 100%;
+
+    .actions-cover-item {
+      flex: 1 1 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+  .entry-row-description {
+    padding: 10px 15px;
+    font-style: italic;
+  }
+
+  &:last-child {
+    .page-list-item {
+      border-bottom: none !important;
+    }
+  }
+  &:hover {
+    cursor: pointer;
+    background-color: $color_gray-light;
+  }
+}

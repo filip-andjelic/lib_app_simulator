@@ -1,0 +1,65 @@
+<div id="create-new-entry-page" class="page-wrapper">
+    <div class="page-main-header">
+        <span class="main-title">Create New Book Entry</span>
+        <div class="large-input-button user-input-button"
+             ng-click="createNewEntry()">Create</div>
+    </div>
+    <div class="page-content horizontal-separation">
+        <div class="max-width-prc-30 page-section">
+            <div class="user-input-element">
+                <label for="entry-name">Enter name for the Book</label>
+                <input type="text"
+                       placeholder="Lord of the Rings..."
+                       id="entry-name"
+                       name="entry-name"
+                       ng-model="newEntryModel.name">
+            </div>
+            <div class="user-input-element">
+                <label for="entry-category">Which Category does it belong?</label>
+                <select id="entry-category"
+                        name="entry-category"
+                        ng-model="newEntryModel.category">
+                    <option ng-repeat="option in existingCategories track by $index"
+                            value="{{option.value}}">
+                        {{option.name}}
+                    </option>
+                </select>
+            </div>
+        </div>
+        <div class="max-width-prc-30 page-section">
+            <div class="user-input-element">
+                <label for="entry-author">Enter name of the Author</label>
+                <input type="text"
+                       placeholder="J. R. R. Tolkien..."
+                       id="entry-author"
+                       name="entry-author"
+                       ng-model="newEntryModel.author">
+            </div>
+            <div class="user-input-element">
+                <label for="entry-description">Short description for this Book</label>
+                <textarea maxlength="200"
+                          cols="80"
+                          rows="10"
+                          placeholder="Some really good description goes here..."
+                          id="entry-description"
+                          name="entry-description"
+                          ng-model="newEntryModel.description"></textarea>
+            </div>
+        </div>
+        <div class="max-width-prc-30 page-section">
+            <div class="user-input-element">
+                <label>New Entry Preview</label>
+                <preview-container ng-if="afterSavingDataExists()"
+                                   content-model="afterSavingData"
+                                   container-class="{{afterSavingData.backgroundClass}}"
+                                   icon-class="{{afterSavingData.iconClass}}">
+                </preview-container>
+                <preview-container ng-if="!afterSavingDataExists()"
+                                   content-model="newEntryModel"
+                                   container-class="{{'category-background-' + newEntryModel.category}}"
+                                   icon-class="{{'fa-' + getEntryClassType()}}">
+                </preview-container>
+            </div>
+        </div>
+    </div>
+</div>
