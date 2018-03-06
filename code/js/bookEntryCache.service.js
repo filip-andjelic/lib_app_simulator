@@ -14,6 +14,8 @@ angular.module('archApp')
         }
         function setDefaultBookEntries() {
             $http.get(API_BASE + 'books').then(function(response) {
+                dataLoaded = true;
+
                 _.each(response.data, function(book, index) {
                     var newEntryObject = getBookEmptyModel();
 
@@ -26,6 +28,9 @@ angular.module('archApp')
 
                     existingItemsCache[newEntryObject.id] = newEntryObject;
                 });
+
+
+                $rootScope.$broadcast('Action.Entry.reload-items');
             }, function() {
                 // throw some kind of error
             });
@@ -33,6 +38,7 @@ angular.module('archApp')
 
         var existingItemsCache = {};
         var BookEntryCache = {};
+        var dataLoaded = false;
 
         BookEntryCache.getBookEmptyModel = getBookEmptyModel;
         BookEntryCache.getExistingEntries = function() {

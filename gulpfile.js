@@ -78,12 +78,12 @@ gulp.task('buildJs', ['bundleAppJsFiles'], function () {
         config.tmpDir + '/third_party_bundle.js',
         config.tmpDir + '/' + config.destDirectory.jsFile
         ])
-        /*.pipe(uglify.minifyJS({
+        .pipe(uglify.minifyJS({
             addSourceMaps: false,
             concat: true,
             concatFilename: config.destDirectory.jsFile,
             concatOutput: config.destDirectory.root,
-        }))*/
+        }))
         .pipe(concat(config.destDirectory.jsFile))
         .pipe(gulp.dest(config.destDirectory.root));
 });
@@ -114,7 +114,7 @@ gulp.task('bundleAppJsFiles', ['bundleThirdPartyJsFiles'], function() {
         config.codeDirectory.root + '/js/archApp.js',
         config.codeDirectory.js])
         .pipe(concat(config.destDirectory.jsFile))
-        //.pipe(ngAnnotate())
+        .pipe(ngAnnotate())
         .pipe(gulp.dest(config.tmpDir));
 });
 gulp.task('bundleThirdPartyJsFiles', function() {
