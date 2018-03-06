@@ -1,0 +1,44 @@
+{
+  "books": [{
+    "name": "Holy Bible",
+    "category": "religion",
+    "author": "King James (version)",
+    "description": "It has been termed the 'noblest monument of English prose', and it has come to be of central importance to Western society as no other book. Thunder Bay’s Holy Bible is beautifully appointed and illustrated with reproductions of original fifteenth-century masterpieces, highlighting Renaissance masterpieces from the period of 1430 to 1510."
+  }, {
+    "name": "L'Albatros",
+    "category": "poems",
+    "author": "Charles Baudelaire",
+    "description": "Often, to amuse themselves, the men of the crew. Catch those great birds of the seas, the albatrosses,lazy companions of the voyage, who follow The ship that slips through bitter gulfs. Hardly have they put them on the deck, Than these kings of the skies, awkward and ashamed, Piteously let their great white wings, Draggle like oars beside them."
+  }, {
+    "name": "War and Peace",
+    "category": "novel",
+    "author": "Leo Tolstoy",
+    "description": "Born to an aristocratic Russian family in 1828, he is best known for the novels War and Peace (1869) and Anna Karenina (1877), often cited as pinnacles of realist fiction. He first achieved literary acclaim in his twenties with his semi-autobiographical trilogy, Childhood, Boyhood, and Youth (1852–1856), and Sevastopol Sketches (1855), based upon his experiences in the Crimean War. Tolstoy's fiction includes dozens of short stories and several novellas such as The Death of Ivan Ilyich, Family Happiness, and Hadji Murad. He also wrote plays and numerous philosophical essays."
+  }, {
+    "name": "Asap Science",
+    "category": "science",
+    "author": "M. MOFFIT & G. BROWN",
+    "description": "From the creators of the wildly popular and seriously scientific YouTube channel, AsapSCIENCE, comes entertaining, irreverent, and totally accessible answers to the questions you never got to ask in science class. This is the science that people actually want to learn, shared in an engaging style."
+  }, {
+    "name": "The Great Leveler: Violence and the History of Inequality from the Stone Age to the Twenty-First Century",
+    "category": "business",
+    "author": "Walter Scheidel",
+    "description": "Inevitably, he argues, societies that manage to create an economic surplus become economically and politically unequal. Within those societies, over time, elites get better and better at rigging the system to divert resources toward themselves. Only catastrophe limits the march toward greater inequality — great plagues, state failure, revolution, and mass-mobilization warfare. In our pick for the best business book of 2017 on economics, Scheidel notes that the welfare state and international institutions such as the European Union and GATT made the world safe for global capitalism."
+  }],
+  "categories": [{
+    "name": "Science",
+    "value": "science"
+  }, {
+    "name": "Religion",
+    "value": "religion"
+  }, {
+    "name": "Poems",
+    "value": "poems"
+  }, {
+    "name": "Novel",
+    "value": "novel"
+  }, {
+    "name": "Business",
+    "value": "business"
+  }]
+}
