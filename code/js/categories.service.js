@@ -1,5 +1,5 @@
 angular.module('archApp')
-    .service('Categories', function() {
+    .service('Categories', ['API_BASE', '$http', function(API_BASE, $http) {
         function getCategoryEmptyModel() {
             return {
                 name: '',
@@ -8,16 +8,17 @@ angular.module('archApp')
             };
         }
         function setDefaultCategories() {
-            var categoryNames = ['Science', 'Religion', 'Novel', 'Poems', 'Business'];
-            var categoryValues = ['science', 'religion', 'novel', 'poems', 'business'];
+            $http.get(API_BASE + 'categories').then(function(response) {
+                _.each(response.data, function(category) {
+                    var newCategoryObject = getCategoryEmptyModel();
 
-            _.each(categoryNames, function(name, index) {
-               var newCategoryObject = getCategoryEmptyModel();
+                    newCategoryObject.name = category.name;
+                    newCategoryObject.value = category.value;
 
-               newCategoryObject.name = name;
-               newCategoryObject.value = categoryValues[index];
-
-               existingItemsCache[newCategoryObject.value] = newCategoryObject;
+                    existingItemsCache[newCategoryObject.value] = newCategoryObject;
+                });
+            }, function() {
+                // throw some kind of error
             });
         }
 
@@ -54,4 +55,4 @@ angular.module('archApp')
         setDefaultCategories();
 
         return Categories;
-    });
+    }]);
